@@ -4,6 +4,7 @@
     clippy::redundant_closure,
     clippy::useless_conversion,
     clippy::unit_arg,
+    clippy::double_parens,
     non_snake_case
 )]
 // AUTO GENERATED FILE, DO NOT EDIT.
@@ -17,30 +18,58 @@ use flutter_rust_bridge::*;
 // Section: wire functions
 
 #[no_mangle]
-pub extern "C" fn wire_platform(port_: i64) {
+pub extern "C" fn wire_get_total_memory(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "platform",
+            debug_name: "get_total_memory",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(platform()),
+        move || move |task_callback| Ok(get_total_memory()),
     )
 }
 
 #[no_mangle]
-pub extern "C" fn wire_rust_release_mode(port_: i64) {
+pub extern "C" fn wire_get_used_memory(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "rust_release_mode",
+            debug_name: "get_used_memory",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(rust_release_mode()),
+        move || move |task_callback| Ok(get_used_memory()),
+    )
+}
+
+#[no_mangle]
+pub extern "C" fn wire_get_cpu_used(port_: i64) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_cpu_used",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || move |task_callback| Ok(get_cpu_used()),
+    )
+}
+
+#[no_mangle]
+pub extern "C" fn wire_get_cpu_frequency(port_: i64) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_cpu_frequency",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || move |task_callback| Ok(get_cpu_frequency()),
     )
 }
 
 // Section: wire structs
+
+// Section: wrapper structs
+
+// Section: static checks
 
 // Section: allocate functions
 
@@ -76,22 +105,6 @@ impl<T> NewWithNullPtr for *mut T {
 }
 
 // Section: impl IntoDart
-
-impl support::IntoDart for Platform {
-    fn into_dart(self) -> support::DartCObject {
-        match self {
-            Self::Unknown => 0,
-            Self::Android => 1,
-            Self::Ios => 2,
-            Self::Windows => 3,
-            Self::Unix => 4,
-            Self::MacIntel => 5,
-            Self::MacApple => 6,
-            Self::Wasm => 7,
-        }
-        .into_dart()
-    }
-}
 
 // Section: executor
 
