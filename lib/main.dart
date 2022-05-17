@@ -6,22 +6,25 @@ auto bdw = bitsdojo_window_configure(BDW_CUSTOM_FRAME | BDW_HIDE_ON_STARTUP);
 
 */
 
-import 'package:bitsdojo_window/bitsdojo_window.dart';
+// import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monilet/ui/view/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(
+    child: MyApp(),
+  ));
 
-  doWhenWindowReady(() {
-    final win = appWindow;
-    const initialSize = Size(720, 720);
-    win.minSize = initialSize;
-    win.size = initialSize;
-    win.alignment = Alignment.topLeft;
-    win.title = "Custom window with Flutter";
-    win.show();
-  });
+  // doWhenWindowReady(() {
+  //   final win = appWindow;
+  //   const initialSize = Size(300, 720);
+  //   win.minSize = initialSize;
+  //   win.size = initialSize;
+  //   win.alignment = Alignment.topLeft;
+  //   win.title = "Custom window with Flutter";
+  //   win.show();
+  // });
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +32,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HomePage());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+      theme: ThemeData(brightness: Brightness.dark),
+    );
   }
 }

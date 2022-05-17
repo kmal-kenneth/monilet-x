@@ -5,7 +5,7 @@ class Palette {
   // prevents instantiation and extension.
   Palette._();
 
-  static const Color background = Color.fromRGBO(40, 44, 52, 1);
+  static const Color background = Color.fromRGBO(40, 44, 52, .1);
   static const SweepGradient baseGradient = SweepGradient(colors: <Color>[
     Color.fromRGBO(118, 146, 255, 1),
     Color.fromRGBO(53, 206, 141, 1)
@@ -13,6 +13,16 @@ class Palette {
     0.0,
     1
   ]);
+  static const LinearGradient linearBaseGradient = LinearGradient(
+      colors: <Color>[
+        Color.fromRGBO(118, 146, 255, 1),
+        Color.fromRGBO(53, 206, 141, 1)
+      ],
+      stops: <double>[
+        0.0,
+        1
+      ],
+      transform: GradientRotation(4.71));
 
 // define grey colors
   static const int _greyPrimaryValue = 0x00fdfdff;
@@ -28,6 +38,7 @@ class Palette {
       700: Color.fromRGBO(94, 97, 103, 1),
       800: Color.fromRGBO(67, 71, 78, 1),
       900: Color.fromRGBO(40, 44, 52, 1),
+      1000: Color.fromRGBO(36, 40, 47, 1),
     },
   );
 }

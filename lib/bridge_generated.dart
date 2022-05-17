@@ -12,13 +12,69 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge.dart';
 import 'dart:ffi' as ffi;
 
 abstract class Native {
-  Future<int> getTotalMemory({dynamic hint});
+  Future<String> getSystemName({dynamic hint});
 
-  Future<int> getUsedMemory({dynamic hint});
+  Future<String> getKernelVersion({dynamic hint});
 
-  Future<double> getCpuUsed({dynamic hint});
+  Future<String> getOsVersion({dynamic hint});
 
-  Future<int> getCpuFrequency({dynamic hint});
+  Future<String> getLongOsVersion({dynamic hint});
+
+  Future<String> getHostname({dynamic hint});
+
+  Future<int> getUptime({dynamic hint});
+
+  Future<int> getBootTime({dynamic hint});
+
+  Future<MyLoadAverage> getLoadAverage({dynamic hint});
+
+  Future<int> totalMemory({dynamic hint});
+
+  Future<int> usedMemory({dynamic hint});
+
+  Future<double> cpuUsed({dynamic hint});
+
+  Future<int> cpuFrequency({dynamic hint});
+
+  Future<String> cpuName({dynamic hint});
+
+  Future<String> cpuBrand({dynamic hint});
+
+  Future<String> cpuVendorId({dynamic hint});
+
+  Future<int> cpuPhysicalCoreCount({dynamic hint});
+
+  Future<int> cpuCoreCount({dynamic hint});
+
+  Future<List<MyProcessor>> cpuCores({dynamic hint});
+}
+
+class MyLoadAverage {
+  final double one;
+  final double five;
+  final double fifteen;
+
+  MyLoadAverage({
+    required this.one,
+    required this.five,
+    required this.fifteen,
+  });
+}
+
+class MyProcessor {
+  final String name;
+  final String brand;
+  final String vendorId;
+  final int frequency;
+  final double cpuUsage;
+
+  MyProcessor({
+    required this.name,
+    required this.brand,
+    required this.vendorId,
+    required this.frequency,
+    required this.cpuUsage,
+  });
 }
 
 class NativeImpl extends FlutterRustBridgeBase<NativeWire> implements Native {
@@ -27,48 +83,212 @@ class NativeImpl extends FlutterRustBridgeBase<NativeWire> implements Native {
 
   NativeImpl.raw(NativeWire inner) : super(inner);
 
-  Future<int> getTotalMemory({dynamic hint}) =>
+  Future<String> getSystemName({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_total_memory(port_),
-        parseSuccessData: _wire2api_u64,
+        callFfi: (port_) => inner.wire_get_system_name(port_),
+        parseSuccessData: _wire2api_String,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_total_memory",
+          debugName: "get_system_name",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<int> getUsedMemory({dynamic hint}) =>
+  Future<String> getKernelVersion({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_used_memory(port_),
-        parseSuccessData: _wire2api_u64,
+        callFfi: (port_) => inner.wire_get_kernel_version(port_),
+        parseSuccessData: _wire2api_String,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_used_memory",
+          debugName: "get_kernel_version",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<double> getCpuUsed({dynamic hint}) =>
+  Future<String> getOsVersion({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_cpu_used(port_),
+        callFfi: (port_) => inner.wire_get_os_version(port_),
+        parseSuccessData: _wire2api_String,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "get_os_version",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<String> getLongOsVersion({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_get_long_os_version(port_),
+        parseSuccessData: _wire2api_String,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "get_long_os_version",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<String> getHostname({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_get_hostname(port_),
+        parseSuccessData: _wire2api_String,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "get_hostname",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<int> getUptime({dynamic hint}) => executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_get_uptime(port_),
+        parseSuccessData: _wire2api_u64,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "get_uptime",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<int> getBootTime({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_get_boot_time(port_),
+        parseSuccessData: _wire2api_u64,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "get_boot_time",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<MyLoadAverage> getLoadAverage({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_get_load_average(port_),
+        parseSuccessData: _wire2api_my_load_average,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "get_load_average",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<int> totalMemory({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_total_memory(port_),
+        parseSuccessData: _wire2api_u64,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "total_memory",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<int> usedMemory({dynamic hint}) => executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_used_memory(port_),
+        parseSuccessData: _wire2api_u64,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "used_memory",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<double> cpuUsed({dynamic hint}) => executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_cpu_used(port_),
         parseSuccessData: _wire2api_f32,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_cpu_used",
+          debugName: "cpu_used",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<int> getCpuFrequency({dynamic hint}) =>
+  Future<int> cpuFrequency({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_cpu_frequency(port_),
+        callFfi: (port_) => inner.wire_cpu_frequency(port_),
         parseSuccessData: _wire2api_u64,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_cpu_frequency",
+          debugName: "cpu_frequency",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<String> cpuName({dynamic hint}) => executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_cpu_name(port_),
+        parseSuccessData: _wire2api_String,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "cpu_name",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<String> cpuBrand({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_cpu_brand(port_),
+        parseSuccessData: _wire2api_String,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "cpu_brand",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<String> cpuVendorId({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_cpu_vendor_id(port_),
+        parseSuccessData: _wire2api_String,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "cpu_vendor_id",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<int> cpuPhysicalCoreCount({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_cpu_physical_core_count(port_),
+        parseSuccessData: _wire2api_i32,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "cpu_physical_core_count",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<int> cpuCoreCount({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_cpu_core_count(port_),
+        parseSuccessData: _wire2api_i32,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "cpu_core_count",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<List<MyProcessor>> cpuCores({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_cpu_cores(port_),
+        parseSuccessData: _wire2api_list_my_processor,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "cpu_cores",
           argNames: [],
         ),
         argValues: [],
@@ -82,12 +302,60 @@ class NativeImpl extends FlutterRustBridgeBase<NativeWire> implements Native {
 }
 
 // Section: wire2api
+String _wire2api_String(dynamic raw) {
+  return raw as String;
+}
+
 double _wire2api_f32(dynamic raw) {
   return raw as double;
 }
 
+double _wire2api_f64(dynamic raw) {
+  return raw as double;
+}
+
+int _wire2api_i32(dynamic raw) {
+  return raw as int;
+}
+
+List<MyProcessor> _wire2api_list_my_processor(dynamic raw) {
+  return (raw as List<dynamic>).map(_wire2api_my_processor).toList();
+}
+
+MyLoadAverage _wire2api_my_load_average(dynamic raw) {
+  final arr = raw as List<dynamic>;
+  if (arr.length != 3)
+    throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+  return MyLoadAverage(
+    one: _wire2api_f64(arr[0]),
+    five: _wire2api_f64(arr[1]),
+    fifteen: _wire2api_f64(arr[2]),
+  );
+}
+
+MyProcessor _wire2api_my_processor(dynamic raw) {
+  final arr = raw as List<dynamic>;
+  if (arr.length != 5)
+    throw Exception('unexpected arr length: expect 5 but see ${arr.length}');
+  return MyProcessor(
+    name: _wire2api_String(arr[0]),
+    brand: _wire2api_String(arr[1]),
+    vendorId: _wire2api_String(arr[2]),
+    frequency: _wire2api_u64(arr[3]),
+    cpuUsage: _wire2api_f32(arr[4]),
+  );
+}
+
 int _wire2api_u64(dynamic raw) {
   return raw as int;
+}
+
+int _wire2api_u8(dynamic raw) {
+  return raw as int;
+}
+
+Uint8List _wire2api_uint_8_list(dynamic raw) {
+  return raw as Uint8List;
 }
 
 // ignore_for_file: camel_case_types, non_constant_identifier_names, avoid_positional_boolean_parameters, annotate_overrides, constant_identifier_names
@@ -112,61 +380,257 @@ class NativeWire implements FlutterRustBridgeWireBase {
           lookup)
       : _lookup = lookup;
 
-  void wire_get_total_memory(
+  void wire_get_system_name(
     int port_,
   ) {
-    return _wire_get_total_memory(
+    return _wire_get_system_name(
       port_,
     );
   }
 
-  late final _wire_get_total_memoryPtr =
+  late final _wire_get_system_namePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_total_memory');
-  late final _wire_get_total_memory =
-      _wire_get_total_memoryPtr.asFunction<void Function(int)>();
+          'wire_get_system_name');
+  late final _wire_get_system_name =
+      _wire_get_system_namePtr.asFunction<void Function(int)>();
 
-  void wire_get_used_memory(
+  void wire_get_kernel_version(
     int port_,
   ) {
-    return _wire_get_used_memory(
+    return _wire_get_kernel_version(
       port_,
     );
   }
 
-  late final _wire_get_used_memoryPtr =
+  late final _wire_get_kernel_versionPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_used_memory');
-  late final _wire_get_used_memory =
-      _wire_get_used_memoryPtr.asFunction<void Function(int)>();
+          'wire_get_kernel_version');
+  late final _wire_get_kernel_version =
+      _wire_get_kernel_versionPtr.asFunction<void Function(int)>();
 
-  void wire_get_cpu_used(
+  void wire_get_os_version(
     int port_,
   ) {
-    return _wire_get_cpu_used(
+    return _wire_get_os_version(
       port_,
     );
   }
 
-  late final _wire_get_cpu_usedPtr =
+  late final _wire_get_os_versionPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_cpu_used');
-  late final _wire_get_cpu_used =
-      _wire_get_cpu_usedPtr.asFunction<void Function(int)>();
+          'wire_get_os_version');
+  late final _wire_get_os_version =
+      _wire_get_os_versionPtr.asFunction<void Function(int)>();
 
-  void wire_get_cpu_frequency(
+  void wire_get_long_os_version(
     int port_,
   ) {
-    return _wire_get_cpu_frequency(
+    return _wire_get_long_os_version(
       port_,
     );
   }
 
-  late final _wire_get_cpu_frequencyPtr =
+  late final _wire_get_long_os_versionPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_cpu_frequency');
-  late final _wire_get_cpu_frequency =
-      _wire_get_cpu_frequencyPtr.asFunction<void Function(int)>();
+          'wire_get_long_os_version');
+  late final _wire_get_long_os_version =
+      _wire_get_long_os_versionPtr.asFunction<void Function(int)>();
+
+  void wire_get_hostname(
+    int port_,
+  ) {
+    return _wire_get_hostname(
+      port_,
+    );
+  }
+
+  late final _wire_get_hostnamePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_get_hostname');
+  late final _wire_get_hostname =
+      _wire_get_hostnamePtr.asFunction<void Function(int)>();
+
+  void wire_get_uptime(
+    int port_,
+  ) {
+    return _wire_get_uptime(
+      port_,
+    );
+  }
+
+  late final _wire_get_uptimePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_get_uptime');
+  late final _wire_get_uptime =
+      _wire_get_uptimePtr.asFunction<void Function(int)>();
+
+  void wire_get_boot_time(
+    int port_,
+  ) {
+    return _wire_get_boot_time(
+      port_,
+    );
+  }
+
+  late final _wire_get_boot_timePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_get_boot_time');
+  late final _wire_get_boot_time =
+      _wire_get_boot_timePtr.asFunction<void Function(int)>();
+
+  void wire_get_load_average(
+    int port_,
+  ) {
+    return _wire_get_load_average(
+      port_,
+    );
+  }
+
+  late final _wire_get_load_averagePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_get_load_average');
+  late final _wire_get_load_average =
+      _wire_get_load_averagePtr.asFunction<void Function(int)>();
+
+  void wire_total_memory(
+    int port_,
+  ) {
+    return _wire_total_memory(
+      port_,
+    );
+  }
+
+  late final _wire_total_memoryPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_total_memory');
+  late final _wire_total_memory =
+      _wire_total_memoryPtr.asFunction<void Function(int)>();
+
+  void wire_used_memory(
+    int port_,
+  ) {
+    return _wire_used_memory(
+      port_,
+    );
+  }
+
+  late final _wire_used_memoryPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_used_memory');
+  late final _wire_used_memory =
+      _wire_used_memoryPtr.asFunction<void Function(int)>();
+
+  void wire_cpu_used(
+    int port_,
+  ) {
+    return _wire_cpu_used(
+      port_,
+    );
+  }
+
+  late final _wire_cpu_usedPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_cpu_used');
+  late final _wire_cpu_used =
+      _wire_cpu_usedPtr.asFunction<void Function(int)>();
+
+  void wire_cpu_frequency(
+    int port_,
+  ) {
+    return _wire_cpu_frequency(
+      port_,
+    );
+  }
+
+  late final _wire_cpu_frequencyPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_cpu_frequency');
+  late final _wire_cpu_frequency =
+      _wire_cpu_frequencyPtr.asFunction<void Function(int)>();
+
+  void wire_cpu_name(
+    int port_,
+  ) {
+    return _wire_cpu_name(
+      port_,
+    );
+  }
+
+  late final _wire_cpu_namePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_cpu_name');
+  late final _wire_cpu_name =
+      _wire_cpu_namePtr.asFunction<void Function(int)>();
+
+  void wire_cpu_brand(
+    int port_,
+  ) {
+    return _wire_cpu_brand(
+      port_,
+    );
+  }
+
+  late final _wire_cpu_brandPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_cpu_brand');
+  late final _wire_cpu_brand =
+      _wire_cpu_brandPtr.asFunction<void Function(int)>();
+
+  void wire_cpu_vendor_id(
+    int port_,
+  ) {
+    return _wire_cpu_vendor_id(
+      port_,
+    );
+  }
+
+  late final _wire_cpu_vendor_idPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_cpu_vendor_id');
+  late final _wire_cpu_vendor_id =
+      _wire_cpu_vendor_idPtr.asFunction<void Function(int)>();
+
+  void wire_cpu_physical_core_count(
+    int port_,
+  ) {
+    return _wire_cpu_physical_core_count(
+      port_,
+    );
+  }
+
+  late final _wire_cpu_physical_core_countPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_cpu_physical_core_count');
+  late final _wire_cpu_physical_core_count =
+      _wire_cpu_physical_core_countPtr.asFunction<void Function(int)>();
+
+  void wire_cpu_core_count(
+    int port_,
+  ) {
+    return _wire_cpu_core_count(
+      port_,
+    );
+  }
+
+  late final _wire_cpu_core_countPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_cpu_core_count');
+  late final _wire_cpu_core_count =
+      _wire_cpu_core_countPtr.asFunction<void Function(int)>();
+
+  void wire_cpu_cores(
+    int port_,
+  ) {
+    return _wire_cpu_cores(
+      port_,
+    );
+  }
+
+  late final _wire_cpu_coresPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_cpu_cores');
+  late final _wire_cpu_cores =
+      _wire_cpu_coresPtr.asFunction<void Function(int)>();
 
   void free_WireSyncReturnStruct(
     WireSyncReturnStruct val,

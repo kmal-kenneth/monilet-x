@@ -1,17 +1,31 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:monilet/cpu/cpu.dart' as my_cpu;
 import 'package:monilet/ffi.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  double used = 0;
-  int frequency = 0;
+  final my_cpu.Cpu cpu = my_cpu.Cpu();
 
-  void initialise() {
+  Future<void> initialise() async {
+    cpu.name = await api.cpuBrand();
+    cpu.coresCount = await api.cpuCoreCount();
+
     Timer.periodic(const Duration(seconds: 1), (_) async {
-      used = await api.getCpuUsed();
-      frequency = await api.getCpuFrequency();
+      cpu.used = await api.cpuUsed();
+
+      cpu.addRecord(my_cpu.CpuRecord(DateTime.now(), cpu.used));
+
+      cpu.timeOfLastRefresh = DateTime.now();
+
+      cpu.frequency = await api.cpuFrequency();
       notifyListeners();
     });
   }
+}
+
+class ChartData {
+  ChartData(this.x, this.y);
+  final DateTime x;
+  final double y;
 }

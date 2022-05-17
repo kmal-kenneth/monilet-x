@@ -7,7 +7,7 @@
 
 #include "flutter/generated_plugin_registrant.h"
 
-#include <bitsdojo_window_linux/bitsdojo_window_plugin.h>
+// #include <bitsdojo_window_linux/bitsdojo_window_plugin.h>
 
 struct _MyApplication
 {
@@ -56,7 +56,7 @@ static void my_application_activate(GApplication *application)
     gtk_window_set_title(window, "monitor");
   }
 
-  // gtk_window_set_default_size(window, 720, 480);
+  gtk_window_set_default_size(window, 720, 480);
   // gtk_widget_show(GTK_WIDGET(window));
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();
@@ -70,11 +70,14 @@ static void my_application_activate(GApplication *application)
 
   // Window always is bottom of window stack.
   gtk_window_set_keep_below(window, true);
+  gtk_window_set_skip_pager_hint(window, false);
+  gtk_window_set_skip_taskbar_hint(window, false);
   // stick window to all virtual desktops
   gtk_window_stick(window);
+  // gtk_window_set_type_hint(window, GDK_WINDOW_TYPE_HINT_DOCK);
 
-  auto bdw = bitsdojo_window_from(window); // <--- add this line
-  bdw->setCustomFrame(true);
+  // auto bdw = bitsdojo_window_from(window); // <--- add this line
+  // bdw->setCustomFrame(true);
 
   gtk_widget_show(GTK_WIDGET(window));
   gtk_widget_show(GTK_WIDGET(view));
