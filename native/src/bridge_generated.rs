@@ -18,98 +18,98 @@ use flutter_rust_bridge::*;
 // Section: wire functions
 
 #[no_mangle]
-pub extern "C" fn wire_get_system_name(port_: i64) {
+pub extern "C" fn wire_system_name(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_system_name",
+            debug_name: "system_name",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(get_system_name()),
+        move || move |task_callback| Ok(system_name()),
     )
 }
 
 #[no_mangle]
-pub extern "C" fn wire_get_kernel_version(port_: i64) {
+pub extern "C" fn wire_kernel_version(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_kernel_version",
+            debug_name: "kernel_version",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(get_kernel_version()),
+        move || move |task_callback| Ok(kernel_version()),
     )
 }
 
 #[no_mangle]
-pub extern "C" fn wire_get_os_version(port_: i64) {
+pub extern "C" fn wire_os_version(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_os_version",
+            debug_name: "os_version",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(get_os_version()),
+        move || move |task_callback| Ok(os_version()),
     )
 }
 
 #[no_mangle]
-pub extern "C" fn wire_get_long_os_version(port_: i64) {
+pub extern "C" fn wire_long_os_version(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_long_os_version",
+            debug_name: "long_os_version",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(get_long_os_version()),
+        move || move |task_callback| Ok(long_os_version()),
     )
 }
 
 #[no_mangle]
-pub extern "C" fn wire_get_hostname(port_: i64) {
+pub extern "C" fn wire_hostname(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_hostname",
+            debug_name: "hostname",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(get_hostname()),
+        move || move |task_callback| Ok(hostname()),
     )
 }
 
 #[no_mangle]
-pub extern "C" fn wire_get_uptime(port_: i64) {
+pub extern "C" fn wire_uptime(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_uptime",
+            debug_name: "uptime",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(get_uptime()),
+        move || move |task_callback| Ok(uptime()),
     )
 }
 
 #[no_mangle]
-pub extern "C" fn wire_get_boot_time(port_: i64) {
+pub extern "C" fn wire_boot_time(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_boot_time",
+            debug_name: "boot_time",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(get_boot_time()),
+        move || move |task_callback| Ok(boot_time()),
     )
 }
 
 #[no_mangle]
-pub extern "C" fn wire_get_load_average(port_: i64) {
+pub extern "C" fn wire_load_average(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_load_average",
+            debug_name: "load_average",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(get_load_average()),
+        move || move |task_callback| Ok(load_average()),
     )
 }
 

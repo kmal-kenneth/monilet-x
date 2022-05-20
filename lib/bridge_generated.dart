@@ -12,21 +12,21 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge.dart';
 import 'dart:ffi' as ffi;
 
 abstract class Native {
-  Future<String> getSystemName({dynamic hint});
+  Future<String> systemName({dynamic hint});
 
-  Future<String> getKernelVersion({dynamic hint});
+  Future<String> kernelVersion({dynamic hint});
 
-  Future<String> getOsVersion({dynamic hint});
+  Future<String> osVersion({dynamic hint});
 
-  Future<String> getLongOsVersion({dynamic hint});
+  Future<String> longOsVersion({dynamic hint});
 
-  Future<String> getHostname({dynamic hint});
+  Future<String> hostname({dynamic hint});
 
-  Future<int> getUptime({dynamic hint});
+  Future<int> uptime({dynamic hint});
 
-  Future<int> getBootTime({dynamic hint});
+  Future<int> bootTime({dynamic hint});
 
-  Future<MyLoadAverage> getLoadAverage({dynamic hint});
+  Future<MyLoadAverage> loadAverage({dynamic hint});
 
   Future<int> totalMemory({dynamic hint});
 
@@ -83,95 +83,94 @@ class NativeImpl extends FlutterRustBridgeBase<NativeWire> implements Native {
 
   NativeImpl.raw(NativeWire inner) : super(inner);
 
-  Future<String> getSystemName({dynamic hint}) =>
+  Future<String> systemName({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_system_name(port_),
+        callFfi: (port_) => inner.wire_system_name(port_),
         parseSuccessData: _wire2api_String,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_system_name",
+          debugName: "system_name",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<String> getKernelVersion({dynamic hint}) =>
+  Future<String> kernelVersion({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_kernel_version(port_),
+        callFfi: (port_) => inner.wire_kernel_version(port_),
         parseSuccessData: _wire2api_String,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_kernel_version",
+          debugName: "kernel_version",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<String> getOsVersion({dynamic hint}) =>
+  Future<String> osVersion({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_os_version(port_),
+        callFfi: (port_) => inner.wire_os_version(port_),
         parseSuccessData: _wire2api_String,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_os_version",
+          debugName: "os_version",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<String> getLongOsVersion({dynamic hint}) =>
+  Future<String> longOsVersion({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_long_os_version(port_),
+        callFfi: (port_) => inner.wire_long_os_version(port_),
         parseSuccessData: _wire2api_String,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_long_os_version",
+          debugName: "long_os_version",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<String> getHostname({dynamic hint}) =>
+  Future<String> hostname({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_hostname(port_),
+        callFfi: (port_) => inner.wire_hostname(port_),
         parseSuccessData: _wire2api_String,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_hostname",
+          debugName: "hostname",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<int> getUptime({dynamic hint}) => executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_uptime(port_),
+  Future<int> uptime({dynamic hint}) => executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_uptime(port_),
         parseSuccessData: _wire2api_u64,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_uptime",
+          debugName: "uptime",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<int> getBootTime({dynamic hint}) =>
-      executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_boot_time(port_),
+  Future<int> bootTime({dynamic hint}) => executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_boot_time(port_),
         parseSuccessData: _wire2api_u64,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_boot_time",
+          debugName: "boot_time",
           argNames: [],
         ),
         argValues: [],
         hint: hint,
       ));
 
-  Future<MyLoadAverage> getLoadAverage({dynamic hint}) =>
+  Future<MyLoadAverage> loadAverage({dynamic hint}) =>
       executeNormal(FlutterRustBridgeTask(
-        callFfi: (port_) => inner.wire_get_load_average(port_),
+        callFfi: (port_) => inner.wire_load_average(port_),
         parseSuccessData: _wire2api_my_load_average,
         constMeta: const FlutterRustBridgeTaskConstMeta(
-          debugName: "get_load_average",
+          debugName: "load_average",
           argNames: [],
         ),
         argValues: [],
@@ -380,117 +379,115 @@ class NativeWire implements FlutterRustBridgeWireBase {
           lookup)
       : _lookup = lookup;
 
-  void wire_get_system_name(
+  void wire_system_name(
     int port_,
   ) {
-    return _wire_get_system_name(
+    return _wire_system_name(
       port_,
     );
   }
 
-  late final _wire_get_system_namePtr =
+  late final _wire_system_namePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_system_name');
-  late final _wire_get_system_name =
-      _wire_get_system_namePtr.asFunction<void Function(int)>();
+          'wire_system_name');
+  late final _wire_system_name =
+      _wire_system_namePtr.asFunction<void Function(int)>();
 
-  void wire_get_kernel_version(
+  void wire_kernel_version(
     int port_,
   ) {
-    return _wire_get_kernel_version(
+    return _wire_kernel_version(
       port_,
     );
   }
 
-  late final _wire_get_kernel_versionPtr =
+  late final _wire_kernel_versionPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_kernel_version');
-  late final _wire_get_kernel_version =
-      _wire_get_kernel_versionPtr.asFunction<void Function(int)>();
+          'wire_kernel_version');
+  late final _wire_kernel_version =
+      _wire_kernel_versionPtr.asFunction<void Function(int)>();
 
-  void wire_get_os_version(
+  void wire_os_version(
     int port_,
   ) {
-    return _wire_get_os_version(
+    return _wire_os_version(
       port_,
     );
   }
 
-  late final _wire_get_os_versionPtr =
+  late final _wire_os_versionPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_os_version');
-  late final _wire_get_os_version =
-      _wire_get_os_versionPtr.asFunction<void Function(int)>();
+          'wire_os_version');
+  late final _wire_os_version =
+      _wire_os_versionPtr.asFunction<void Function(int)>();
 
-  void wire_get_long_os_version(
+  void wire_long_os_version(
     int port_,
   ) {
-    return _wire_get_long_os_version(
+    return _wire_long_os_version(
       port_,
     );
   }
 
-  late final _wire_get_long_os_versionPtr =
+  late final _wire_long_os_versionPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_long_os_version');
-  late final _wire_get_long_os_version =
-      _wire_get_long_os_versionPtr.asFunction<void Function(int)>();
+          'wire_long_os_version');
+  late final _wire_long_os_version =
+      _wire_long_os_versionPtr.asFunction<void Function(int)>();
 
-  void wire_get_hostname(
+  void wire_hostname(
     int port_,
   ) {
-    return _wire_get_hostname(
+    return _wire_hostname(
       port_,
     );
   }
 
-  late final _wire_get_hostnamePtr =
+  late final _wire_hostnamePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_hostname');
-  late final _wire_get_hostname =
-      _wire_get_hostnamePtr.asFunction<void Function(int)>();
+          'wire_hostname');
+  late final _wire_hostname =
+      _wire_hostnamePtr.asFunction<void Function(int)>();
 
-  void wire_get_uptime(
+  void wire_uptime(
     int port_,
   ) {
-    return _wire_get_uptime(
+    return _wire_uptime(
       port_,
     );
   }
 
-  late final _wire_get_uptimePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_uptime');
-  late final _wire_get_uptime =
-      _wire_get_uptimePtr.asFunction<void Function(int)>();
+  late final _wire_uptimePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('wire_uptime');
+  late final _wire_uptime = _wire_uptimePtr.asFunction<void Function(int)>();
 
-  void wire_get_boot_time(
+  void wire_boot_time(
     int port_,
   ) {
-    return _wire_get_boot_time(
+    return _wire_boot_time(
       port_,
     );
   }
 
-  late final _wire_get_boot_timePtr =
+  late final _wire_boot_timePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_boot_time');
-  late final _wire_get_boot_time =
-      _wire_get_boot_timePtr.asFunction<void Function(int)>();
+          'wire_boot_time');
+  late final _wire_boot_time =
+      _wire_boot_timePtr.asFunction<void Function(int)>();
 
-  void wire_get_load_average(
+  void wire_load_average(
     int port_,
   ) {
-    return _wire_get_load_average(
+    return _wire_load_average(
       port_,
     );
   }
 
-  late final _wire_get_load_averagePtr =
+  late final _wire_load_averagePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'wire_get_load_average');
-  late final _wire_get_load_average =
-      _wire_get_load_averagePtr.asFunction<void Function(int)>();
+          'wire_load_average');
+  late final _wire_load_average =
+      _wire_load_averagePtr.asFunction<void Function(int)>();
 
   void wire_total_memory(
     int port_,

@@ -18,12 +18,12 @@ class HomeNotifier extends StateNotifier<HomeState> {
 
   init() async {
 //system
-    state.system.name = await api.getSystemName();
-    state.system.kernelVersion = await api.getKernelVersion();
-    state.system.osVersion = await api.getOsVersion();
-    state.system.longOsVresion = await api.getLongOsVersion();
-    state.system.hostname = await api.getHostname();
-    state.system.boottime = await api.getBootTime();
+    state.system.name = await api.systemName();
+    state.system.kernelVersion = await api.kernelVersion();
+    state.system.osVersion = await api.osVersion();
+    state.system.longOsVresion = await api.longOsVersion();
+    state.system.hostname = await api.hostname();
+    state.system.boottime = await api.bootTime();
 
     state.cpu.name = await api.cpuBrand();
     state.cpu.coresCount = await api.cpuCoreCount();
@@ -33,9 +33,9 @@ class HomeNotifier extends StateNotifier<HomeState> {
   loop() {
     Timer.periodic(const Duration(seconds: 1), (_) async {
       // system
-      state.system.uptime = await api.getUptime();
+      state.system.uptime = await api.uptime();
 
-      var load = await api.getLoadAverage();
+      var load = await api.loadAverage();
       state.system.loadAverage = LoadAverage(
           oneMinute: load.one,
           fiveMinutes: load.five,

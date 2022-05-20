@@ -45,11 +45,11 @@ impl MyLoadAverage {
 static SYSTEM: Lazy<Mutex<System>> = Lazy::new(|| Mutex::new(System::new_all()));
 
 // system
-pub fn get_system_name() -> String {
+pub fn system_name() -> String {
     SYSTEM.lock().unwrap().name().unwrap_or(String::from(""))
 }
 
-pub fn get_kernel_version() -> String {
+pub fn kernel_version() -> String {
     SYSTEM
         .lock()
         .unwrap()
@@ -57,7 +57,7 @@ pub fn get_kernel_version() -> String {
         .unwrap_or(String::from(""))
 }
 
-pub fn get_os_version() -> String {
+pub fn os_version() -> String {
     SYSTEM
         .lock()
         .unwrap()
@@ -65,7 +65,7 @@ pub fn get_os_version() -> String {
         .unwrap_or(String::from(""))
 }
 
-pub fn get_long_os_version() -> String {
+pub fn long_os_version() -> String {
     SYSTEM
         .lock()
         .unwrap()
@@ -73,7 +73,7 @@ pub fn get_long_os_version() -> String {
         .unwrap_or(String::from(""))
 }
 
-pub fn get_hostname() -> String {
+pub fn hostname() -> String {
     SYSTEM
         .lock()
         .unwrap()
@@ -81,15 +81,15 @@ pub fn get_hostname() -> String {
         .unwrap_or(String::from(""))
 }
 
-pub fn get_uptime() -> u64 {
+pub fn uptime() -> u64 {
     SYSTEM.lock().unwrap().uptime()
 }
 
-pub fn get_boot_time() -> u64 {
+pub fn boot_time() -> u64 {
     SYSTEM.lock().unwrap().boot_time()
 }
 
-pub fn get_load_average() -> MyLoadAverage {
+pub fn load_average() -> MyLoadAverage {
     let load = SYSTEM.lock().unwrap().load_average();
 
     MyLoadAverage::new(load.one, load.five, load.fifteen)

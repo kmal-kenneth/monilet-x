@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monilet/cpu/cpu.dart';
 import 'package:monilet/cpu/widgets/gauge_cpu.dart';
+import 'package:monilet/memory/widgets/memory_widget.dart';
 import 'package:monilet/system/widgets/system_widget.dart';
 import 'package:monilet/ui/palette.dart';
 // import 'package:monilet/cpu/widgets/gauge_cpu.dart';
@@ -62,6 +63,8 @@ class RightSide extends ConsumerWidget {
                   uptime: homestate.system.uptime,
                   boottime: homestate.system.boottime,
                   loadAverage: homestate.system.loadAverage),
+              const SizedBox(height: 8),
+              const MemoryWidget(),
               GaugeCpu(
                 used: homestate.cpu.used,
                 frequency: homestate.cpu.frequency,
