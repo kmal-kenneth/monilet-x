@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class SystemState {
   String name = "";
   String kernelVersion = "";
@@ -15,5 +17,11 @@ class LoadAverage {
   final double fifteenMinutes;
 
   const LoadAverage(
-      {this.oneMinute = 0, this.fiveMinutes = 0, this.fifteenMinutes = 0});
+      {this.oneMinute = 0, this.fiveMinutes = 0, this.fifteenMinutes = 1});
+
+  double maximum() {
+    var maxi = max(oneMinute, max(fiveMinutes, fifteenMinutes));
+
+    return (maxi.isNegative ? maxi.floor() : maxi.ceil()).toDouble();
+  }
 }

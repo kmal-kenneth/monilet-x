@@ -5,23 +5,13 @@ class Palette {
   // prevents instantiation and extension.
   Palette._();
 
-  static const Color background = Color.fromRGBO(40, 44, 52, .1);
-  static const SweepGradient baseGradient = SweepGradient(colors: <Color>[
-    Color.fromRGBO(118, 146, 255, 1),
-    Color.fromRGBO(53, 206, 141, 1)
-  ], stops: <double>[
-    0.0,
-    1
-  ]);
+  static const Color background = Color.fromRGBO(40, 44, 52, .8);
+  static const SweepGradient baseGradient = SweepGradient(
+      colors: <Color>[Color(0xFF7692FF), Color(0xFF35CE8D)],
+      stops: <double>[0.0, 1]);
   static const LinearGradient linearBaseGradient = LinearGradient(
-      colors: <Color>[
-        Color.fromRGBO(118, 146, 255, 1),
-        Color.fromRGBO(53, 206, 141, 1)
-      ],
-      stops: <double>[
-        0.0,
-        1
-      ],
+      colors: <Color>[Color(0xFF7692FF), Color(0xFF35CE8D)],
+      stops: <double>[0.0, 1],
       transform: GradientRotation(4.71));
 
 // define grey colors
@@ -39,6 +29,42 @@ class Palette {
       800: Color.fromRGBO(67, 71, 78, 1),
       900: Color.fromRGBO(40, 44, 52, 1),
       1000: Color.fromRGBO(36, 40, 47, 1),
+    },
+  );
+
+  // define green colors
+  static const int _greenPrimaryValue = 0xFF35CE8D;
+  static const MaterialColor green = MaterialColor(
+    _greenPrimaryValue,
+    <int, Color>{
+      100: Color(0xffE4F8F1),
+      200: Color(0xffcbf2e3),
+      300: Color(0xff99e6c6),
+      400: Color(0xff67daaa),
+      500: Color(0xFF35CE8D),
+      600: Color(0xff31a576),
+      700: Color(0xff2d7b5e),
+      800: Color(0xff295247),
+      900: Color(0xff273d3b),
+      1000: Color(0xff233736),
+    },
+  );
+
+  // define blue colors
+  static const int _bluePrimaryValue = 0xFF7692FF;
+  static const MaterialColor blue = MaterialColor(
+    _bluePrimaryValue,
+    <int, Color>{
+      100: Color(0xffE4F8F1),
+      200: Color(0xffcbf2e3),
+      300: Color(0xff99e6c6),
+      400: Color(0xff67daaa),
+      500: Color(0xFF7692FF),
+      600: Color(0xff6b8c9e),
+      700: Color(0xff5f7e8a),
+      800: Color(0xff54777e),
+      900: Color(0xff4a636a),
+      1000: Color(0xff415859),
     },
   );
 }

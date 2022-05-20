@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:monilet/constants.dart';
 import 'package:monilet/system/system_state.dart';
+import 'package:monilet/system/widgets/load_radar.dart';
 import 'package:monilet/ui/palette.dart';
+import 'package:monilet/ui/widgets/base_indicator_widget.dart';
 
 class SystemWidget extends StatelessWidget {
   final String name;
@@ -27,83 +29,86 @@ class SystemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        color: Palette.grey[1000],
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-            color: Palette.grey[800] ?? Colors.transparent, width: 1),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black38,
-            blurRadius: 8,
-            offset: Offset(0, 4),
-          ),
-        ],
-      ),
+    return BaseIndicatorWidget(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("$name $osVersion", style: Constants.labelStyle),
           Row(
-            children: [
-              Text("Kernel:", style: Constants.labelStyle),
-              const SizedBox(width: 8),
-              Text(kernelVersion, style: Constants.valueStyle),
-            ],
-          ),
-          Row(
-            children: [
-              Text("Hostname:", style: Constants.labelStyle),
-              const SizedBox(width: 8),
-              Text(
-                hostname,
-                style: Constants.valueStyle,
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Text("Uptime:", style: Constants.labelStyle),
-              const SizedBox(width: 8),
-              Text(Duration(seconds: uptime).toString(),
-                  style: Constants.valueStyle),
-            ],
-          ),
-          Row(
-            children: [
-              Text("Boottime:", style: Constants.labelStyle),
-              const SizedBox(width: 8),
-              Text(
-                  DateTime.fromMillisecondsSinceEpoch(boottime * 1000)
-                      .toString(),
-                  style: Constants.valueStyle),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("One", style: Constants.labelStyle),
+                  Text("$name $osVersion", style: Constants.labelStyle),
+                  Row(
+                    children: [
+                      Text("Kernel:", style: Constants.labelStyle),
+                      const SizedBox(width: 8),
+                      Text(kernelVersion, style: Constants.valueStyle),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Hostname:", style: Constants.labelStyle),
+                      const SizedBox(width: 8),
+                      Text(
+                        hostname,
+                        style: Constants.valueStyle,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Uptime:", style: Constants.labelStyle),
+                      const SizedBox(width: 8),
+                      Text(Duration(seconds: uptime).toString(),
+                          style: Constants.valueStyle),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Boottime:", style: Constants.labelStyle),
+                      const SizedBox(width: 8),
+                      Text(
+                          DateTime.fromMillisecondsSinceEpoch(boottime * 1000)
+                              .toString(),
+                          style: Constants.valueStyle),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                ],
+              ),
+              const Expanded(
+                child: SizedBox(),
+              ),
+              LoadRadar(loadAverage: loadAverage),
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(6),
+                decoration: const BoxDecoration(
+                  color: Palette.green,
+                  shape: BoxShape.circle,
+                ),
+              ),
+              const SizedBox(width: 8),
+              const Text("Load average", style: Constants.labelRadarStyle),
+              const SizedBox(width: 6),
+              Row(
+                children: [
+                  Text("1 min: ", style: Constants.labelStyle),
                   Text(loadAverage.oneMinute.toString(),
-                      style: Constants.valueStyle),
-                ],
-              ),
-              Column(
-                children: [
-                  Text("Five", style: Constants.labelStyle),
+                      style: Constants.valueRadarStyle),
+                  const SizedBox(width: 6),
+                  Text("5 min: ", style: Constants.labelStyle),
                   Text(loadAverage.fiveMinutes.toString(),
-                      style: Constants.valueStyle),
-                ],
-              ),
-              Column(
-                children: [
-                  Text("Fifteen", style: Constants.labelStyle),
+                      style: Constants.valueRadarStyle),
+                  const SizedBox(width: 6),
+                  Text("15 min: ", style: Constants.labelStyle),
                   Text(loadAverage.fifteenMinutes.toString(),
-                      style: Constants.valueStyle),
+                      style: Constants.valueRadarStyle),
                 ],
               ),
             ],
