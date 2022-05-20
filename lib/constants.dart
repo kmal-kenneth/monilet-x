@@ -7,10 +7,10 @@ class Constants {
   static final labelStyle = TextStyle(
       fontSize: 11, color: Palette.grey[100], fontWeight: FontWeight.bold);
   static final valueStyle = TextStyle(
-      fontSize: 11, color: Palette.grey[300], fontWeight: FontWeight.normal);
+      fontSize: 11, color: Palette.grey[200], fontWeight: FontWeight.normal);
 
-  static const labelRadarStyle = TextStyle(
-      fontSize: 11, color: Palette.green, fontWeight: FontWeight.bold);
+  static final labelRadarStyle = TextStyle(
+      fontSize: 11, color: Palette.green[400], fontWeight: FontWeight.bold);
   static final valueRadarStyle = TextStyle(
       fontSize: 11, color: Palette.green[400], fontWeight: FontWeight.normal);
 }

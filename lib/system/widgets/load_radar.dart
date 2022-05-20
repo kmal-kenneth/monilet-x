@@ -14,6 +14,7 @@ class LoadRadar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color color = Palette.green[400] ?? Colors.green;
     return SizedBox(
       width: 90,
       child: AspectRatio(
@@ -22,8 +23,8 @@ class LoadRadar extends StatelessWidget {
           RadarChartData(
             dataSets: [
               RadarDataSet(
-                fillColor: Palette.green.withOpacity(.1),
-                borderColor: Palette.green,
+                fillColor: color.withOpacity(.3),
+                borderColor: color,
                 entryRadius: 2,
                 dataEntries: [
                   RadarEntry(value: loadAverage.oneMinute),

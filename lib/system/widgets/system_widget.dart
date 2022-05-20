@@ -94,7 +94,7 @@ class SystemWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              const Text("Load average", style: Constants.labelRadarStyle),
+              Text("Load average", style: Constants.labelRadarStyle),
               const SizedBox(width: 6),
               Row(
                 children: [
