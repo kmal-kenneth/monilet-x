@@ -8,7 +8,7 @@ import 'package:monilet/system/widgets/system_widget.dart';
 import 'package:monilet/ui/palette.dart';
 // import 'package:monilet/cpu/widgets/gauge_cpu.dart';
 import 'package:monilet/ui/state/home_state.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import 'package:monilet/ui/widgets/base_indicator_widget.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 // import 'package:syncfusion_flutter_charts/charts.dart';
@@ -39,11 +39,16 @@ class RightSide extends ConsumerWidget {
 
     return Column(
       children: [
-        WindowTitleBarBox(
-            child: Row(children: [
-          Expanded(child: MoveWindow()),
-          const WindowButtons()
-        ])),
+        BaseIndicatorWidget(
+          borderRadius: BorderRadius.zero,
+          padding: EdgeInsets.zero,
+          scale: false,
+          child: WindowTitleBarBox(
+              child: Row(children: [
+            Expanded(child: MoveWindow()),
+            const WindowButtons()
+          ])),
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
