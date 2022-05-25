@@ -17,7 +17,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
   }
 
   init() async {
-//system
+    //system
     state.system.name = await api.systemName();
     state.system.kernelVersion = await api.kernelVersion();
     state.system.osVersion = await api.osVersion();
@@ -25,6 +25,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     state.system.hostname = await api.hostname();
     state.system.boottime = await api.bootTime();
 
+    // cpu
     state.cpu.name = await api.cpuBrand();
     state.cpu.coresCount = await api.cpuCoreCount();
     update();

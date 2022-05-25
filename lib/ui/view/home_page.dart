@@ -36,7 +36,7 @@ class RightSide extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final HomeState homestate = ref.watch(homeProvider);
+    final HomeState homeState = ref.watch(homeProvider);
 
     return Column(
       children: [
@@ -55,22 +55,22 @@ class RightSide extends ConsumerWidget {
             padding: const EdgeInsets.all(8.0),
             child: ListView(children: [
               SystemWidget(
-                  name: homestate.system.name,
-                  kernelVersion: homestate.system.kernelVersion,
-                  longOsVresion: homestate.system.longOsVresion,
-                  osVersion: homestate.system.osVersion,
-                  hostname: homestate.system.hostname,
-                  uptime: homestate.system.uptime,
-                  boottime: homestate.system.boottime,
-                  loadAverage: homestate.system.loadAverage),
+                  name: homeState.system.name,
+                  kernelVersion: homeState.system.kernelVersion,
+                  longOsVresion: homeState.system.longOsVresion,
+                  osVersion: homeState.system.osVersion,
+                  hostname: homeState.system.hostname,
+                  uptime: homeState.system.uptime,
+                  boottime: homeState.system.boottime,
+                  loadAverage: homeState.system.loadAverage),
               const SizedBox(height: 8),
               const MemoryWidget(),
               GaugeCpu(
-                used: homestate.cpu.used,
-                frequency: homestate.cpu.frequency,
-                cores: homestate.cpu.coresCount,
+                used: homeState.cpu.used,
+                frequency: homeState.cpu.frequency,
+                cores: homeState.cpu.coresCount,
               ),
-              ChartCpu(cpu: homestate.cpu),
+              ChartCpu(cpu: homeState.cpu),
             ]),
           ),
         ),
@@ -131,7 +131,8 @@ class _CpuState extends State<ChartCpu> {
                 majorGridLines: const MajorGridLines(width: 0)),
             series: <ColumnSeries>[
               ColumnSeries<CpuRecord, DateTime>(
-                gradient: Palette.linearBaseGradient,
+                borderRadius: BorderRadius.circular(8),
+                gradient: Palette.vLinearBaseGradient,
                 dataSource: _cpu.records,
                 xValueMapper: (CpuRecord data, _) => data.x,
                 yValueMapper: (CpuRecord data, _) => data.y,

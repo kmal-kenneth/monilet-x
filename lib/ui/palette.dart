@@ -9,10 +9,18 @@ class Palette {
   static const SweepGradient baseGradient = SweepGradient(
       colors: <Color>[Color(0xFF7692FF), Color(0xFF35CE8D)],
       stops: <double>[0.0, 1]);
-  static const LinearGradient linearBaseGradient = LinearGradient(
-      colors: <Color>[Color(0xFF7692FF), Color(0xFF35CE8D)],
-      stops: <double>[0.0, 1],
-      transform: GradientRotation(4.71));
+
+  static const LinearGradient hLinearBaseGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: <Color>[Color(0xFF7692FF), Color(0xFF35CE8D)],
+  );
+
+  static const LinearGradient vLinearBaseGradient = LinearGradient(
+    begin: Alignment.bottomCenter,
+    end: Alignment.topCenter,
+    colors: <Color>[Color(0xFF7692FF), Color(0xFF35CE8D)],
+  );
 
 // define grey colors
   static const int _greyPrimaryValue = 0x00fdfdff;

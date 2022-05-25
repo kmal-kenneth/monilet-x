@@ -32,6 +32,10 @@ abstract class Native {
 
   Future<int> usedMemory({dynamic hint});
 
+  Future<int> freeMemory({dynamic hint});
+
+  Future<int> availableMemory({dynamic hint});
+
   Future<double> cpuUsed({dynamic hint});
 
   Future<int> cpuFrequency({dynamic hint});
@@ -194,6 +198,29 @@ class NativeImpl extends FlutterRustBridgeBase<NativeWire> implements Native {
         parseSuccessData: _wire2api_u64,
         constMeta: const FlutterRustBridgeTaskConstMeta(
           debugName: "used_memory",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<int> freeMemory({dynamic hint}) => executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_free_memory(port_),
+        parseSuccessData: _wire2api_u64,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "free_memory",
+          argNames: [],
+        ),
+        argValues: [],
+        hint: hint,
+      ));
+
+  Future<int> availableMemory({dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_available_memory(port_),
+        parseSuccessData: _wire2api_u64,
+        constMeta: const FlutterRustBridgeTaskConstMeta(
+          debugName: "available_memory",
           argNames: [],
         ),
         argValues: [],
@@ -516,6 +543,34 @@ class NativeWire implements FlutterRustBridgeWireBase {
           'wire_used_memory');
   late final _wire_used_memory =
       _wire_used_memoryPtr.asFunction<void Function(int)>();
+
+  void wire_free_memory(
+    int port_,
+  ) {
+    return _wire_free_memory(
+      port_,
+    );
+  }
+
+  late final _wire_free_memoryPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_free_memory');
+  late final _wire_free_memory =
+      _wire_free_memoryPtr.asFunction<void Function(int)>();
+
+  void wire_available_memory(
+    int port_,
+  ) {
+    return _wire_available_memory(
+      port_,
+    );
+  }
+
+  late final _wire_available_memoryPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_available_memory');
+  late final _wire_available_memory =
+      _wire_available_memoryPtr.asFunction<void Function(int)>();
 
   void wire_cpu_used(
     int port_,

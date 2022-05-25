@@ -109,6 +109,18 @@ pub fn used_memory() -> u64 {
 
     SYSTEM.lock().unwrap().used_memory()
 }
+
+pub fn free_memory() -> u64 {
+    SYSTEM.lock().unwrap().refresh_memory();
+
+    SYSTEM.lock().unwrap().free_memory()
+}
+
+pub fn available_memory() -> u64 {
+    SYSTEM.lock().unwrap().refresh_memory();
+
+    SYSTEM.lock().unwrap().available_memory()
+}
 // memory end
 
 // cpu

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class BaseIndicatorWidget extends StatelessWidget {
-  final Widget? child;
+  final Widget child;
   final double sigma;
   final BorderRadius borderRadius;
   final Gradient gradient;

@@ -138,6 +138,30 @@ pub extern "C" fn wire_used_memory(port_: i64) {
 }
 
 #[no_mangle]
+pub extern "C" fn wire_free_memory(port_: i64) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "free_memory",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || move |task_callback| Ok(free_memory()),
+    )
+}
+
+#[no_mangle]
+pub extern "C" fn wire_available_memory(port_: i64) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "available_memory",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || move |task_callback| Ok(available_memory()),
+    )
+}
+
+#[no_mangle]
 pub extern "C" fn wire_cpu_used(port_: i64) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
