@@ -41,7 +41,7 @@ jobs:
           ln -sr AppDir/usr/bin/monilet AppDir/monilet
           tar czf monilet-${{ github.event_name == 'release' && github.event.release.tag_name || 'continuous' }}-x86_64.tar.gz -C AppDir/ .
       
-       - name: Build AppImage
+      - name: Build AppImage
         run: |
           echo '#!/bin/sh
           cd "$(dirname "$0")"
