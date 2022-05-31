@@ -54,7 +54,8 @@ jobs:
         run: ./tarball.sh
         shell: bash
         env:
-          GITHUB: ${{ github}}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_TAG_NAME: ${{ GITHUB.event.release.tag_name }}
 
       - name: Build AppImage
         run: |

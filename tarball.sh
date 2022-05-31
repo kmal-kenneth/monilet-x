@@ -13,7 +13,7 @@ for i in "${icon_sizes[@]}"; do
 done
 
 echo "Installing binary files"
-cp  build/linux/x64/release/bundle/Monilet build/linux/x64/release/bundle/"$project_name"
+cp build/linux/x64/release/bundle/Monilet build/linux/x64/release/bundle/"$project_name"
 cp -fr build/linux/x64/release/bundle linux/packaging/usr/bin
 
 echo "Building metadata"
@@ -35,10 +35,10 @@ ln -sr AppDir/usr/bin/"$project_name" AppDir/"$project_name"
 echo "Create tarball"
 my_event=""
 
-if [ "${GITHUB.event_name}" == 'release' ] && [ "${GITHUB.event.release.tag_name}" ]; then
-    my_event=GITHUB.event_name
+if [ "${GITHUB_EVENT_NAME}" == 'release' ] && [ "${GITHUB_TAG_NAME}" ]; then
+    my_event=GITHUB_EVENT_NAME
 else
     my_event="continuous"
 fi
 
-tar czf "${project_name}-${my_event}-x86_64.tar.gz" -C AppDir/ 
+tar czf "${project_name}-${my_event}-x86_64.tar.gz" -C AppDir/
