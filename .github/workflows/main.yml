@@ -52,6 +52,7 @@ jobs:
 
       - name: Build Tarball
         run: |
+          echo '#!/bin/bash'
           project_name="com.github.kmalkenneth.monilet"
           # Install icons
           icon_sizes=('32' '48' '64' '128')
