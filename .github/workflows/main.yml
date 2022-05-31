@@ -20,6 +20,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so the job can access it
       - uses: actions/checkout@v3
 
+      - name: Install Flutter build tools
+        run: apt update -y && apt install -y ninja-build cmake libclang-dev libgtk-3-dev clang pkg-config iblzma-dev libglu1-mesa wget curl
+
       - name: Install Rust toolchain
         uses: actions-rs/toolchain@v1
         with:
@@ -30,9 +33,6 @@ jobs:
         uses: subosito/flutter-action@master
         with:
           channel: stable
-
-      - name: Install Flutter build tools
-        run: apt update -y && apt install -y ninja-build cmake libclang-dev libgtk-3-dev clang pkg-config iblzma-dev libglu1-mesa
 
       - name: Enable desktop support
         run: flutter config --enable-linux-desktop
