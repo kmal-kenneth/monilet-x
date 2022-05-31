@@ -15,8 +15,8 @@ Comment[pl]=Widżet do monitorowania systemu.
 Comment=It's a system monitor widget.
 Categories=Utility;GTK;
 
-Icon=com.github.kmal-kenneth.monilet
-Exec=com.github.kmal-kenneth.monilet
+Icon=monilet
+Exec=monilet
 Terminal=false
 
 X-GNOME-Gettext-Domain=monitor-widget
