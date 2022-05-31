@@ -13,8 +13,8 @@ for i in "${icon_sizes[@]}"; do
 done
 
 echo "Installing binary files"
+cp  build/linux/x64/release/bundle/monilet build/linux/x64/release/bundle/"$project_name"
 cp -fr build/linux/x64/release/bundle linux/packaging/usr/bin
-cp  linux/packaging/usr/bin/monilet linux/packaging/usr/bin/"$project_name"
 
 echo "Building metadata"
 cd metadata || exit
