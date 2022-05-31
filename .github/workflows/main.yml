@@ -51,28 +51,19 @@ jobs:
         run: flutter build linux
 
       - name: Build Tarball
-        run: |
-          install -D data/icons/32/monilet.svg linux/packaging/usr/share/icons/hicolor/32x32/apps/monilet.svg
-          install -D data/icons/48/monilet.svg linux/packaging/usr/share/icons/hicolor/48x48/apps/monilet.svg
-          install -D data/icons/64/monilet.svg linux/packaging/usr/share/icons/hicolor/64x64/apps/monilet.svg
-          install -D data/icons/128/monilet.svg linux/packaging/usr/share/icons/hicolor/128x128/apps/monilet.svg
-          cp -fr build/linux/x64/release/bundle linux/packaging/usr/bin
-          mkdir AppDir
-          cp -r linux/packaging/usr AppDir
-          ln -sr AppDir/usr/bin/monilet AppDir/monilet
-          tar czf monilet-${{ github.event_name == 'release' && github.event.release.tag_name || 'continuous' }}-x86_64.tar.gz -C AppDir/ .
+        run: ./metadata/tarball.sh
 
-      - name: Build AppImage
-        run: |
-          echo '#!/bin/sh
-          cd "$(dirname "$0")"
-          exec ./monilet' > AppDir/AppRun
-          chmod +x AppDir/AppRun
-          ln -sr AppDir/usr/share/icons/hicolor/128x128/apps/monilet.svg AppDir/monilet.svg
-          cp data/com.github.kmal-kenneth.monilet.desktop AppDir/monilet.desktop
-          curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool-x86_64.AppImage
-          chmod +x appimagetool-x86_64.AppImage
-          ARCH=x86_64 ./appimagetool-x86_64.AppImage AppDir/ monilet-${{ github.event_name == 'release' && github.event.release.tag_name || 'continuous' }}
+      # - name: Build AppImage
+      #   run: |
+      #     echo '#!/bin/sh
+      #     cd "$(dirname "$0")"
+      #     exec ./monilet' > AppDir/AppRun
+      #     chmod +x AppDir/AppRun
+      #     ln -sr AppDir/usr/share/icons/hicolor/128x128/apps/monilet.svg AppDir/monilet.svg
+      #     cp data/com.github.kmal-kenneth.monilet.desktop AppDir/monilet.desktop
+      #     curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool-x86_64.AppImage
+      #     chmod +x appimagetool-x86_64.AppImage
+      #     ARCH=x86_64 ./appimagetool-x86_64.AppImage AppDir/ monilet-${{ github.event_name == 'release' && github.event.release.tag_name || 'continuous' }}
 
       - name: App tar sha256 sum
         run: sha256sum monilet-*-x86_64.tar.gz
