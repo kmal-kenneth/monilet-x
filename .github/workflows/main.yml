@@ -51,45 +51,19 @@ jobs:
         run: flutter build linux
 
       - name: Build Tarball
-        run: |
-          echo '#!/bin/bash'
-          project_name="com.github.kmalkenneth.monilet"
-          # Install icons
-          icon_sizes=('32' '48' '64' '128')
-          for i in "${icon_sizes[@]}"; do
-              echo "Installing '$i'x'$i' icon"
-              install -D data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"/apps/"$project_name".svg
-              install -D data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"@2/apps/"$project_name".svg
-          done
-          echo "Installing binary files"
-          cp -fr ../build/linux/x64/release/bundle linux/packaging/usr/bin
-          cp  linux/packaging/usr/bin/monilet linux/packaging/usr/bin/"$project_name"
-          echo "Create AppDir"
-          mkdir ../AppDir
-          echo "Copy files to AppDir"
-          cp -r linux/packaging/usr ../AppDir
-          echo "linking binary"
-          ln -sr ../AppDir/usr/bin/"$project_name" ../AppDir/"$project_name"
-          echo "Create tarball"
-          my_event=""
-          if [ "${github.event_name}" == 'release' ] && [ "${github.event.release.tag_name}" ]; then
-              my_event=github.event_name
-          else
-              my_event="continuous"
-          fi
-          tar czf "${project_name}-${my_event}-x86_64.tar.gz" -C ../AppDir/ ../
+        run: tarball.sh
 
-      # - name: Build AppImage
-      #   run: |
-      #     echo '#!/bin/sh
-      #     cd "$(dirname "$0")"
-      #     exec ./monilet' > AppDir/AppRun
-      #     chmod +x AppDir/AppRun
-      #     ln -sr AppDir/usr/share/icons/hicolor/128x128/apps/monilet.svg AppDir/monilet.svg
-      #     cp data/com.github.kmal-kenneth.monilet.desktop AppDir/monilet.desktop
-      #     curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool-x86_64.AppImage
-      #     chmod +x appimagetool-x86_64.AppImage
-      #     ARCH=x86_64 ./appimagetool-x86_64.AppImage AppDir/ monilet-${{ github.event_name == 'release' && github.event.release.tag_name || 'continuous' }}
+      - name: Build AppImage
+        run: |
+          echo '#!/bin/sh
+          cd "$(dirname "$0")"
+          exec ./monilet' > AppDir/AppRun
+          chmod +x AppDir/AppRun
+          ln -sr AppDir/usr/share/icons/hicolor/128x128/apps/monilet.svg AppDir/monilet.svg
+          cp data/com.github.kmal-kenneth.monilet.desktop AppDir/monilet.desktop
+          curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool-x86_64.AppImage
+          chmod +x appimagetool-x86_64.AppImage
+          ARCH=x86_64 ./appimagetool-x86_64.AppImage AppDir/ monilet-${{ github.event_name == 'release' && github.event.release.tag_name || 'continuous' }}
 
       - name: App tar sha256 sum
         run: sha256sum monilet-*-x86_64.tar.gz
