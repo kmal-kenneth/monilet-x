@@ -79,7 +79,7 @@ jobs:
 
       - uses: svenstaro/upload-release-action@latest
         with:
-          repo_token: ${{ secrets.TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./monilet-*
           file_glob: true
           prerelease: ${{ github.event_name != 'release' }}
