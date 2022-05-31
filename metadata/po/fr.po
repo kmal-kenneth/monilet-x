@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: extra\n"
+"Project-Id-Version: com.github.kmalkenneth.monilet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-31 12:05-0600\n"
 "PO-Revision-Date: 2020-01-11 13:56+0100\n"

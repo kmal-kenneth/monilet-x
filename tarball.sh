@@ -2,15 +2,15 @@
 
 project_name="com.GITHUB.kmalkenneth.monilet"
 
-# Install icons
-icon_sizes=('32' '48' '64' '128')
+# # Install icons
+# icon_sizes=('32' '48' '64' '128')
 
-for i in "${icon_sizes[@]}"; do
+# for i in "${icon_sizes[@]}"; do
 
-    echo "Installing '$i'x'$i' icon"
-    install -D metadata/data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"/apps/"$project_name".svg
-    install -D metadata/data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"@2/apps/"$project_name".svg
-done
+#     echo "Installing '$i'x'$i' icon"
+#     install -D metadata/data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"/apps/"$project_name".svg
+#     install -D metadata/data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"@2/apps/"$project_name".svg
+# done
 
 echo "Installing binary files"
 cp build/linux/x64/release/bundle/Monilet build/linux/x64/release/bundle/"$project_name"
@@ -41,4 +41,4 @@ else
     my_event="continuous"
 fi
 
-tar czf "${project_name}-${my_event}-x86_64.tar.gz" -C AppDir/
+tar czf "${project_name}-${my_event}-x86_64.tar.gz" -C AppDir/ .
