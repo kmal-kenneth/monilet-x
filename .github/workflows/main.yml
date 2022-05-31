@@ -53,6 +53,8 @@ jobs:
       - name: Build Tarball
         run: ./tarball.sh
         shell: bash
+        with:
+          github: ${{ github }}
 
       - name: Build AppImage
         run: |
