@@ -1,4 +1,4 @@
-project('com.github.kmal-kenneth.monilet', version: '0.2.0')
+project('com.github.kmalkenneth.monilet', version: '0.2.0')
 
 # gnome = import('gnome')
 i18n = import('i18n')

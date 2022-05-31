@@ -18,25 +18,25 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: data/com.github.kmal-kenneth.monilet.desktop.in:6
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:6
+#: data/com.github.kmalkenneth.monilet.desktop.in:6
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:6
 msgid "Monilet"
 msgstr "Monilet"
 
-#: data/com.github.kmal-kenneth.monilet.desktop.in:7
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:7
+#: data/com.github.kmalkenneth.monilet.desktop.in:7
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:7
 msgid "A monitor widget."
 msgstr "Widżet do monitorowania."
 
-#: data/com.github.kmal-kenneth.monilet.desktop.in:8
+#: data/com.github.kmalkenneth.monilet.desktop.in:8
 msgid "It's a system monitor widget."
 msgstr "Widżet do monitorowania systemu."
 
-#: data/com.github.kmal-kenneth.monilet.desktop.in:16
+#: data/com.github.kmalkenneth.monilet.desktop.in:16
 msgid "Monitor;widget;"
 msgstr "Monitor;Widżet;"
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:13
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:13
 msgid ""
 "See percentage of use your CPU and number of cores. Also percentage used "
 "memory, amount of memory used and total memory."
@@ -44,76 +44,76 @@ msgstr ""
 "Zobacz procentowe użycie procesora i ilość używanych rdzeni, a także procent "
 "użycia pamięci, ilość użytej i dostępnej pamięci."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:15
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:15
 msgid "Stays out of your way by always sticking to the desktop"
 msgstr "Nie przeszkadza, bo zawsze przykleja się do pulpitu"
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:16
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:16
 msgid "Move the window by dragging any part of it"
 msgstr "Przenieś okno za dowolną jego część"
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:17
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:17
 msgid "Quit with the handy shortcut Ctrl + Q"
 msgstr "Zamknij apkę wygodnym skrótem Ctrl + Q"
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:36
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:36
 msgid ""
 "Release: It works on small details, such as languages and store previews."
 msgstr ""
 "Zwolnij: Działa na małych szczegółach, takich jak języki i podglądy sklepu."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:38
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:38
 msgid "Add French to the supported languages."
 msgstr "Dodaj francuski do obsługiwanych języków."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:39
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:39
 msgid "Fixed the preview error in the store."
 msgstr "Naprawiono błąd podglądu w sklepie."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:45
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:45
 msgid "Release: Add Polish to the supported languages."
 msgstr "Zwolnij: Dodaj polski do obsługiwanych języków."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:50
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:50
 msgid "Release: Arriving in Juno."
 msgstr "Wydanie: Przybycie do Juno"
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:55
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:55
 msgid "Release: Fixed of the capacity of minimization and form."
 msgstr "Wydanie: Poprawiono minimalizację i formę."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:57
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:57
 msgid "Now it is not minimized by pressing the icon in the dock."
 msgstr "Od teraz nie minimalizuje się po kliknięciu ikony w doku."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:58
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:58
 msgid "Again it shows the rounded edges."
 msgstr "Znów pokazuje zaokrąglone rogi."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:59
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:59
 msgid "The close button is present again but the color of the widget."
 msgstr "Przycisk zamykania jest znów obecny, ale w kolorze widżetu."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:65
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:65
 msgid "Release: Add icons, hide the base icon and remove the close button."
 msgstr ""
 "Wydanie: Dodano ikony, ukryto bazową ikonę i usunięto przycisk zamykania."
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:67
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:67
 msgid "Added icons in different sizes (128, 64, 48, 32)"
 msgstr "Dodano ikony w innych rozmiarach (128, 64, 48, 32)"
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:68
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:68
 msgid "It is no longer shown in the dock"
 msgstr "Nie pojawia się już w doku"
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:69
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:69
 msgid "The close button was removed"
 msgstr "Przycisk zamykania został usunięty"
 
-#: data/com.github.kmal-kenneth.monilet.metainfo.xml.in:105
+#: data/com.github.kmalkenneth.monilet.metainfo.xml.in:105
 msgid "Kenet Acuña"
 msgstr "Kenet Acuñ"
 
-#~ msgid "com.github.kmal-kenneth.monilet"
-#~ msgstr "com.github.kmal-kenneth.monilet"
+#~ msgid "com.github.kmalkenneth.monilet"
+#~ msgstr "com.github.kmalkenneth.monilet"

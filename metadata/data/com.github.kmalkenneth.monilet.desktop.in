@@ -1,5 +1,4 @@
 [Desktop Entry]
-Version=0.1.5
 Type=Application
 
 Name=Monilet
@@ -7,8 +6,8 @@ GenericName=A monitor widget.
 Comment=It's a system monitor widget.
 Categories=Utility;GTK;
 
-Icon=com.github.kmal-kenneth.monilet
-Exec=com.github.kmal-kenneth.monilet
+Icon=com.github.kmalkenneth.monilet
+Exec=com.github.kmalkenneth.monilet
 Terminal=false
 
 X-GNOME-Gettext-Domain=monitor-widget

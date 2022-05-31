@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2019 Kenet Mauricio Acuña Lago <kmal.kenneth@live.com> -->
 <component type="desktop-application">
-  <id>com.github.kmal-kenneth.monilet</id>
+  <id>com.github.kmalkenneth.monilet</id>
 
   <name>Monilet</name>
   <summary>A monitor widget.</summary>
@@ -22,14 +22,14 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.github.com/kmal-kenneth/monilet/master/data/images/screenshot.png</image>
+      <image>https://raw.github.com/kmalkenneth/monilet/master/data/images/screenshot.png</image>
     </screenshot>
   </screenshots>
 
   <provides>
-    <binary>com.github.kmal-kenneth.monilet</binary>
+    <binary>com.github.kmalkenneth.monilet</binary>
   </provides>
-  
+
   <releases>
     <release version="0.2.2" date="2020-02-09">
       <description>
@@ -103,10 +103,10 @@
   </content_rating>
 
   <developer_name>Kenet Acuña</developer_name>
-  <url type="homepage">http://github.com/kmal-kenneth</url>
-  <url type="bugtracker">https://github.com/kmal-kenneth/monilet/issues</url>
-  <url type="help">http://github.com/kmal-kenneth/issues</url>
-  <url type="translate">http://github.com/kmal-kenneth</url>
+  <url type="homepage">http://github.com/kmalkenneth</url>
+  <url type="bugtracker">https://github.com/kmalkenneth/monilet/issues</url>
+  <url type="help">http://github.com/kmalkenneth/issues</url>
+  <url type="translate">http://github.com/kmalkenneth</url>
 
   <custom>
     <value key="x-appcenter-color-primary">#292B37</value>
