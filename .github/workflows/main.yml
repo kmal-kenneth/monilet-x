@@ -51,7 +51,8 @@ jobs:
         run: flutter build linux
 
       - name: Build Tarball
-        run: tarball.sh
+        run: ./tarball.sh
+        shell: bash
 
       - name: Build AppImage
         run: |
