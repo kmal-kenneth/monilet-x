@@ -1,0 +1,27 @@
+[Desktop Entry]
+Version=0.1.5
+Type=Application
+
+Name[es]=Monilet
+Name[fr]=Monilet
+Name[pl]=Monilet
+Name=Monilet
+GenericName[es]=Un widget monitor
+GenericName[fr]=Un outil de suivi du système.
+GenericName[pl]=Widżet do monitorowania.
+GenericName=A monitor widget.
+Comment[es]=Es un widget monitor del sistema
+Comment[fr]=Un simple outil de suivi du système.
+Comment[pl]=Widżet do monitorowania systemu.
+Comment=It's a system monitor widget.
+Categories=Utility;GTK;
+
+Icon=com.github.kmal-kenneth.monilet
+Exec=com.github.kmal-kenneth.monilet
+Terminal=false
+
+X-GNOME-Gettext-Domain=monitor-widget
+Keywords[fr]=Suivi;Surveillance;Widget;
+Keywords[pl]=Monitor;Widżet;
+Keywords=Monitor;widget;
+X-GNOME-UsesNotifications=true

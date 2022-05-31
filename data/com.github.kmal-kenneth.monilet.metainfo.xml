@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2019 Kenet Mauricio Acuña Lago <kmal.kenneth@live.com> -->
+<component type="desktop-application">
+  <id>com.github.kmal-kenneth.monilet</id>
+  <name>Monilet</name>
+  <name xml:lang="pl">Monilet</name>
+  <name xml:lang="fr">Monilet</name>
+  <name xml:lang="es">Monilet</name>
+  <summary>A monitor widget.</summary>
+  <summary xml:lang="pl">Widżet do monitorowania.</summary>
+  <summary xml:lang="fr">Un outil de suivi du système.</summary>
+  <summary xml:lang="es">Un widget monitor</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <description>
+    <p>See percentage of use your CPU and number of cores. Also percentage used memory, amount of memory used and total memory.</p>
+    <p xml:lang="pl">Zobacz procentowe użycie procesora i ilość używanych rdzeni, a także procent użycia pamięci, ilość użytej i dostępnej pamięci.</p>
+    <p xml:lang="fr">Visualisez le pourcentage d'utilisation de votre processeur et le nombre de coeurs, ainsi que le pourcentage de mémoire utilisée, le volume de mémoire utilisée et la mémoire totale.</p>
+    <p xml:lang="es">Vea el porcentaje de uso de su CPU y el número de núcleos. También el porcentaje de memoria utilizada, la cantidad de memoria utilizada y la memoria total.</p>
+    <ul>
+      <li>Stays out of your way by always sticking to the desktop</li>
+      <li xml:lang="pl">Nie przeszkadza, bo zawsze przykleja się do pulpitu</li>
+      <li xml:lang="fr">Reste en dehors de votre chemin en restant toujours fixe sur le bureau</li>
+      <li xml:lang="es">Se mantiene fuera de su camino siempre pegándose al escritorio.</li>
+      <li>Move the window by dragging any part of it</li>
+      <li xml:lang="pl">Przenieś okno za dowolną jego część</li>
+      <li xml:lang="fr">Déplacez la fenêtre en restant appuyé n'importe où</li>
+      <li xml:lang="es">Mueva la ventana arrastrando cualquier parte de ella.</li>
+      <li>Quit with the handy shortcut Ctrl + Q</li>
+      <li xml:lang="pl">Zamknij apkę wygodnym skrótem Ctrl + Q</li>
+      <li xml:lang="fr">Quittez l'application avec le raccourci pratique Ctrl + Q</li>
+      <li xml:lang="es">Salga con el práctico atajo Ctrl + Q</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">io.github.kmal_kenneth.monilet.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.github.com/kmal-kenneth/monilet/master/data/images/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <provides>
+    <binary>com.github.kmal-kenneth.monilet</binary>
+  </provides>
+  <releases>
+    <release version="0.2.2" date="2020-02-09">
+      <description>
+        <p>Release: It works on small details, such as languages and store previews.</p>
+        <p xml:lang="pl">Zwolnij: Działa na małych szczegółach, takich jak języki i podglądy sklepu.</p>
+        <p xml:lang="fr">Lancement : Travaille sur les petits détails, comme les langues et l'aperçu dans la boutique.</p>
+        <p xml:lang="es">Lanzamiento: Trabaja detalles pequeños, como los idiomas y la vista previa en la tienda.</p>
+        <ul>
+          <li>Add French to the supported languages.</li>
+          <li xml:lang="pl">Dodaj francuski do obsługiwanych języków.</li>
+          <li xml:lang="es">Añade el francé a los idiomas soportados.</li>
+          <li>Fixed the preview error in the store.</li>
+          <li xml:lang="pl">Naprawiono błąd podglądu w sklepie.</li>
+          <li xml:lang="fr">Correction de l'erreur de prévisualisation dans le magasin.</li>
+          <li xml:lang="es">Arreglado el error de la vista previa en la tienda.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.2.1" date="2020-01-10">
+      <description>
+        <p>Release: Add Polish to the supported languages.</p>
+        <p xml:lang="pl">Zwolnij: Dodaj polski do obsługiwanych języków.</p>
+        <p xml:lang="fr">Version : Ajout du polonais aux langues prises en charge.</p>
+        <p xml:lang="es">Lanzamiento: Añadir el polaco a los idiomas soportados.</p>
+      </description>
+    </release>
+    <release version="0.2.0" date="2019-12-14">
+      <description>
+        <p>Release: Arriving in Juno.</p>
+        <p xml:lang="pl">Wydanie: Przybycie do Juno</p>
+        <p xml:lang="fr">Version : Débarquement sur Juno.</p>
+        <p xml:lang="es">Lanzamiento: Llegando a Juno.</p>
+      </description>
+    </release>
+    <release version="0.1.8" date="2018-01-25">
+      <description>
+        <p>Release: Fixed of the capacity of minimization and form.</p>
+        <p xml:lang="pl">Wydanie: Poprawiono minimalizację i formę.</p>
+        <p xml:lang="fr">Version : Correction de la minimisation et de la forme de la fenêtre.</p>
+        <p xml:lang="es">Lanzamiento: Se corrigió la capacidad de minimización y forma.</p>
+        <ul>
+          <li>Now it is not minimized by pressing the icon in the dock.</li>
+          <li xml:lang="pl">Od teraz nie minimalizuje się po kliknięciu ikony w doku.</li>
+          <li xml:lang="fr">Désormais l'application n'est plus minimisée lors du clic sur l'icône dans le dock.</li>
+          <li xml:lang="es">Ahora no se minimiza presionando el icono en el dock.</li>
+          <li>Again it shows the rounded edges.</li>
+          <li xml:lang="pl">Znów pokazuje zaokrąglone rogi.</li>
+          <li xml:lang="fr">Retour des coins arrondis.</li>
+          <li xml:lang="es">Nuevamente muestra los bordes redondeados</li>
+          <li>The close button is present again but the color of the widget.</li>
+          <li xml:lang="pl">Przycisk zamykania jest znów obecny, ale w kolorze widżetu.</li>
+          <li xml:lang="fr">Retour du bouton de fermeture mais de la couleur de la fenêtre.</li>
+          <li xml:lang="es">El botón de cierre está presente nuevamente pero el color del widget.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.5" date="2018-01-16">
+      <description>
+        <p>Release: Add icons, hide the base icon and remove the close button.</p>
+        <p xml:lang="pl">Wydanie: Dodano ikony, ukryto bazową ikonę i usunięto przycisk zamykania.</p>
+        <p xml:lang="fr">Version : Ajout d'icônes, icône de base masquée et suppression du bouton de fermeture.</p>
+        <p xml:lang="es">Liberar: Agregar iconos, ocultar el icono base y eliminar el botón de cierre.</p>
+        <ul>
+          <li>Added icons in different sizes (128, 64, 48, 32)</li>
+          <li xml:lang="pl">Dodano ikony w innych rozmiarach (128, 64, 48, 32)</li>
+          <li xml:lang="fr">Ajout des icônes dans différentes tailles (128, 64, 48, 32)</li>
+          <li xml:lang="es">Se agregaron iconos en diferentes tamaños (128, 64, 48, 32)</li>
+          <li>It is no longer shown in the dock</li>
+          <li xml:lang="pl">Nie pojawia się już w doku</li>
+          <li xml:lang="fr">L'application n'est plus visible dans le dock.</li>
+          <li xml:lang="es">Ya no se muestra en el muelle</li>
+          <li>The close button was removed</li>
+          <li xml:lang="pl">Przycisk zamykania został usunięty</li>
+          <li xml:lang="fr">Le bouton de fermeture a été retiré</li>
+          <li xml:lang="es">El botón de cerrar fue eliminado</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">none</content_attribute>
+    <content_attribute id="violence-fantasy">none</content_attribute>
+    <content_attribute id="violence-realistic">none</content_attribute>
+    <content_attribute id="violence-bloodshed">none</content_attribute>
+    <content_attribute id="violence-sexual">none</content_attribute>
+    <content_attribute id="violence-desecration">none</content_attribute>
+    <content_attribute id="violence-slavery">none</content_attribute>
+    <content_attribute id="violence-worship">none</content_attribute>
+    <content_attribute id="drugs-alcohol">none</content_attribute>
+    <content_attribute id="drugs-narcotics">none</content_attribute>
+    <content_attribute id="drugs-tobacco">none</content_attribute>
+    <content_attribute id="sex-nudity">none</content_attribute>
+    <content_attribute id="sex-themes">none</content_attribute>
+    <content_attribute id="sex-homosexuality">none</content_attribute>
+    <content_attribute id="sex-prostitution">none</content_attribute>
+    <content_attribute id="sex-adultery">none</content_attribute>
+    <content_attribute id="sex-appearance">none</content_attribute>
+    <content_attribute id="language-profanity">none</content_attribute>
+    <content_attribute id="language-humor">none</content_attribute>
+    <content_attribute id="language-discrimination">none</content_attribute>
+    <content_attribute id="social-chat">none</content_attribute>
+    <content_attribute id="social-info">none</content_attribute>
+    <content_attribute id="social-audio">none</content_attribute>
+    <content_attribute id="social-location">none</content_attribute>
+    <content_attribute id="social-contacts">none</content_attribute>
+    <content_attribute id="money-purchasing">none</content_attribute>
+    <content_attribute id="money-gambling">none</content_attribute>
+  </content_rating>
+  <developer_name>Kenet Acuña</developer_name>
+  <developer_name xml:lang="pl">Kenet Acuñ</developer_name>
+  <developer_name xml:lang="fr">Kenet Acuña</developer_name>
+  <developer_name xml:lang="es">Kenet Acuña</developer_name>
+  <url type="homepage">http://github.com/kmal-kenneth</url>
+  <url type="bugtracker">https://github.com/kmal-kenneth/monilet/issues</url>
+  <url type="help">http://github.com/kmal-kenneth/issues</url>
+  <url type="translate">http://github.com/kmal-kenneth</url>
+  <custom>
+    <value key="x-appcenter-color-primary">#292B37</value>
+    <value key="x-appcenter-color-primary-text">#DCDFE4</value>
+  </custom>
+</component>
