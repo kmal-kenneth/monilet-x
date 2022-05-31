@@ -1,6 +1,6 @@
 #!/bin/bash
 
-project_name="com.github.kmalkenneth.monilet"
+project_name="com.GITHUB.kmalkenneth.monilet"
 
 # Install icons
 icon_sizes=('32' '48' '64' '128')
@@ -35,8 +35,8 @@ ln -sr AppDir/usr/bin/"$project_name" AppDir/"$project_name"
 echo "Create tarball"
 my_event=""
 
-if [ "${github.event_name}" == 'release' ] && [ "${github.event.release.tag_name}" ]; then
-    my_event=github.event_name
+if [ "${GITHUB.event_name}" == 'release' ] && [ "${GITHUB.event.release.tag_name}" ]; then
+    my_event=GITHUB.event_name
 else
     my_event="continuous"
 fi
