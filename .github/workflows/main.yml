@@ -20,6 +20,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so the job can access it
       - uses: actions/checkout@v3
 
+      steps:
+      - uses: actions/checkout@v1
+      - uses: icepuma/rust-action@master
+        with:
+          args: cd integration-test && cargo fmt -- --check && cargo clippy -- -Dwarnings && cargo test
+
       - name: Setup flutter
         uses: subosito/flutter-action@master
         with:
