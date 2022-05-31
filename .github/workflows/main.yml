@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install Flutter build tools
-        run: apt update -y && apt install -y ninja-build cmake libclang-dev libgtk-3-dev clang pkg-config libglu1-mesa wget curl appstream
+        run: apt update -y && apt install -y ninja-build cmake libclang-dev libgtk-3-dev clang pkg-config libglu1-mesa wget curl appstream meson
 
       - name: Install Rust toolchain
         uses: actions-rs/toolchain@v1
