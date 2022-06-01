@@ -9,7 +9,7 @@ echo "Verify directory"
 ./"$project_name" >AppDir/AppRun
 
 echo "Change directory permissions"
-sudo chmod +x AppDir/AppRun
+chmod +x AppDir/AppRun
 
 echo "Link binary"
 ln -sr AppDir/usr/share/icons/hicolor/128x128/apps/"$project_name".svg AppDir/"$project_name".svg
@@ -21,7 +21,7 @@ echo "Download appimagetool"
 curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool-x86_64.AppImage
 
 echo "Change appimagetool permissions"
-sudo chmod +x appimagetool-x86_64.AppImage
+chmod +x appimagetool-x86_64.AppImage
 
 echo "Create appimage"
 my_event=""
