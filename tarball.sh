@@ -28,7 +28,6 @@ install -D metadata/build/data/"$project_name".desktop linux/packaging/usr/share
 
 echo "Installing metainfo file"
 install -D metadata/build/data/"$project_name".metainfo.xml linux/packaging/usr/share/metainfo/"$project_name".metainfo.xml
-install -D metadata/build/data/"$project_name".metainfo.xml linux/packaging/usr/share/metainfo/"$project_name".appdata.xml
 
 echo "Installing gschema file"
 install -D metadata/data/"$project_name".gschema.xml linux/packaging/usr/share/glib-2.0/schemas/"$project_name".gschema.xml

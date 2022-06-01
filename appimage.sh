@@ -6,8 +6,8 @@ cd "$(dirname "$0")" || exit
 echo "$PWD"
 ls
 
-# echo "Verify directory"
-# ./"$project_name" >AppDir/AppRun
+echo "Verify directory"
+./"$project_name" >AppDir/AppRun
 
 echo "Change directory permissions"
 chmod +x AppDir/AppRun
