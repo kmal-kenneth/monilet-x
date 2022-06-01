@@ -1,16 +1,16 @@
 #!/bin/bash
 
-project_name="com.GITHUB.kmalkenneth.monilet"
+project_name="com.github.kmalkenneth.monilet"
 
-# # Install icons
-# icon_sizes=('32' '48' '64' '128')
+# Install icons
+icon_sizes=('32' '48' '64' '128')
 
-# for i in "${icon_sizes[@]}"; do
+for i in "${icon_sizes[@]}"; do
 
-#     echo "Installing '$i'x'$i' icon"
-#     install -D metadata/data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"/apps/"$project_name".svg
-#     install -D metadata/data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"@2/apps/"$project_name".svg
-# done
+    echo "Installing '$i'x'$i' icon"
+    install -D metadata/data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"/apps/"$project_name".svg
+    install -D metadata/data/icons/"$i"/"$project_name".svg linux/packaging/usr/share/icons/hicolor/"$i"x"$i"@2/apps/"$project_name".svg
+done
 
 echo "Installing binary files"
 cp build/linux/x64/release/bundle/Monilet build/linux/x64/release/bundle/"$project_name"
@@ -20,8 +20,17 @@ echo "Building metadata"
 cd metadata || exit
 meson build --prefix=/usr
 cd build || exit
-ninja install
+# ninja install
 cd ../.. || exit
+
+echo "Installing desktop file"
+install -D metadata/build/data/"$project_name".desktop linux/packaging/usr/share/applications/"$project_name".desktop
+
+echo "Installing metainfo file"
+install -D metadata/build/data/"$project_name".metainfo.xml linux/packaging/usr/share/metainfo/"$project_name".metainfo.xml
+
+echo "Installing gschema file"
+install -D metadata/data/"$project_name".gschema.xml linux/packaging/usr/share/glib-2.0/schemas/"$project_name".gschema.xml
 
 echo "Create AppDir"
 mkdir AppDir

@@ -58,16 +58,11 @@ jobs:
           GITHUB_TAG_NAME: ${{ GITHUB.event.release.tag_name }}
 
       - name: Build AppImage
-        run: |
-          echo '#!/bin/sh
-          cd "$(dirname "$0")"
-          exec ./monilet' > AppDir/AppRun
-          chmod +x AppDir/AppRun
-          ln -sr AppDir/usr/share/icons/hicolor/128x128/apps/monilet.svg AppDir/monilet.svg
-          cp data/com.github.kmal-kenneth.monilet.desktop AppDir/monilet.desktop
-          curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool-x86_64.AppImage
-          chmod +x appimagetool-x86_64.AppImage
-          ARCH=x86_64 ./appimagetool-x86_64.AppImage AppDir/ monilet-${{ github.event_name == 'release' && github.event.release.tag_name || 'continuous' }}
+        run: ./appimage.sh
+        shell: bash
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_TAG_NAME: ${{ GITHUB.event.release.tag_name }}
 
       - name: App tar sha256 sum
         run: sha256sum monilet-*-x86_64.tar.gz
