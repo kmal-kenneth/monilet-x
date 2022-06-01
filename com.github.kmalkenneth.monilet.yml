@@ -27,11 +27,14 @@ modules:
   - name: monilet
     buildsystem: simple
     build-commands:
-      - cp -R AppDir/usr/bin/ /app/com.github.kmalkenneth.monilet
-      - cp -R AppDir/usr/share/ /app/share
-      - sed -i 's/<id>AppDir/<id>io.github.kmalkenneth.monilet/' /app/share/metainfo/com.github.kmalkenneth.monilet.appdata.xml
+      - cp -R monilet/usr/bin/ /app/com.github.kmalkenneth.monilet
+      - cp -R monilet/usr/share/ /app/share
+      - sed -i 's/<id>monilet/<id>com.github.kmalkenneth.monilet/' /app/share/metainfo/com.github.kmalkenneth.monilet.metainfo.xml
       - mkdir -p /app/bin/
-      - ln -s /app/AppDir/io.github.kmalkenneth.monilet /app/bin/io.github.kmalkenneth.monilet
+      - ln -s /app/monilet/com.github.kmalkenneth.monilet /app/bin/com.github.kmalkenneth.monilet
     sources:
-      - type: dir
-        path: ./AppDir/
+      - type: archive
+        only-arches:
+          - x86_64
+        path: ./io.github.kmalkenneth.monilet-x86_64.tar.gz
+        dest: monilet
