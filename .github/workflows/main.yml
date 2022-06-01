@@ -65,12 +65,12 @@ jobs:
           GITHUB_TAG_NAME: ${{ GITHUB.event.release.tag_name }}
 
       - name: App tar sha256 sum
-        run: sha256sum monilet-*-x86_64.tar.gz
+        run: sha256sum com.github.kmalkenneth.monilet-*-x86_64.tar.gz
 
       - uses: svenstaro/upload-release-action@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./monilet-*
+          file: ./com.github.kmalkenneth.monilet-*
           file_glob: true
           prerelease: ${{ github.event_name != 'release' }}
           release_name: ${{ github.event_name == 'release' && github.event.release.name || 'Development Build' }}

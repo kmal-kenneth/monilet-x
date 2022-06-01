@@ -4,14 +4,15 @@ project_name="com.github.kmalkenneth.monilet"
 echo "change directory"
 cd "$(dirname "$0")" || exit
 echo "$PWD"
+ls
 
-echo "Verify directory"
-./"$project_name" >AppDir/AppRun
+# echo "Verify directory"
+# ./"$project_name" >AppDir/AppRun
 
 echo "Change directory permissions"
 chmod +x AppDir/AppRun
 
-echo "Link binary"
+echo "Link icon"
 ln -sr AppDir/usr/share/icons/hicolor/128x128/apps/"$project_name".svg AppDir/"$project_name".svg
 
 echo "Copy desktop file"
