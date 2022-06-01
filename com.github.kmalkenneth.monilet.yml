@@ -36,5 +36,5 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        path: ./io.github.kmalkenneth.monilet-x86_64.tar.gz
+        path: ./com.github.kmalkenneth.monilet-*-x86_64.tar.gz
         dest: monilet
