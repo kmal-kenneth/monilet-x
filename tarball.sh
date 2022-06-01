@@ -20,7 +20,7 @@ echo "Building metadata"
 cd metadata || exit
 meson build --prefix=/usr
 cd build || exit
-# ninja install
+ninja
 cd ../.. || exit
 
 echo "Installing desktop file"
