@@ -61,7 +61,7 @@ jobs:
         run: |
           echo '#!/bin/sh
           cd "$(dirname "$0")"
-          echo "$PWD"
+          pwd
 
       - name: Build AppImage
         run: ./appimage.sh
