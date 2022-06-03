@@ -58,12 +58,6 @@ jobs:
           GITHUB_TAG_NAME: ${{ GITHUB.event.release.tag_name }}
 
       - name: Build AppImage
-        run: |
-          echo '#!/bin/sh
-          cd "$(dirname "$0")"
-          pwd
-
-      - name: Build AppImage
         run: ./appimage.sh
         shell: bash
         env:
