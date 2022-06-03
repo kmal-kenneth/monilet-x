@@ -4,7 +4,6 @@ project_name="com.github.kmalkenneth.monilet"
 echo "change directory"
 cd "$(dirname "$0")" || exit
 echo "$PWD"
-ls
 
 echo "Verify directory"
 ./"$project_name" >AppDir/AppRun
@@ -17,6 +16,7 @@ ln -sr AppDir/usr/share/icons/hicolor/128x128/apps/"$project_name".svg AppDir/"$
 
 echo "Copy desktop file"
 cp AppDir/usr/share/applications/"$project_name".desktop AppDir/"$project_name".desktop
+ls
 
 echo "Download appimagetool"
 curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool-x86_64.AppImage
