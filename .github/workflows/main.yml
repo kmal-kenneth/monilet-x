@@ -64,7 +64,7 @@ jobs:
       #     GITHUB_EVENT_NAME: ${{ github.event_name }}
       #     GITHUB_TAG_NAME: ${{ GITHUB.event.release.tag_name }}
 
-       - name: Build AppImage
+      - name: Build AppImage
         run: |
           echo '#!/bin/sh
           cd "$(dirname "$0")"
